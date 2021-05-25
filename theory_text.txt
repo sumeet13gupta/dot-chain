@@ -1,0 +1,22 @@
+##Creating Blocks :
+Timestamps in miliseconds
+lastHash - the hash of the data block efore it
+hash -  based on its own data
+the data to store
+
+
+
+##The Genesis block:
+it serves the purpose of creating the origfin for the block-chain
+why is it useful? : If someone adds a new block to the chain, it contains the hash information of its previous block i.e. the Genesis block.
+
+
+##Mine blocks:
+based on the old blocks we can create new blocks
+
+
+
+Block hashes and SHA-256 :
+The hash is generated from the timestamp, lastHash, ad stored Data.   (256bits = 32 bytes == 32 characters)
+One-way hash - from direction of data to hashes
+useful for block validation.
