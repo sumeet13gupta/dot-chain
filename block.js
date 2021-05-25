@@ -22,12 +22,17 @@ class Block {
           return new this('Genesis time', '______','irhsd_hasbu',[]);
       }
 
-      static mineBlocks(lastBlock, data) {
+      static mineBlock(lastBlock, data) {
           const timestamp = Date.now();
           const lastHash = lastBlock.hash;
-          const hash = 'todo-Hash';
+          const hash = Block.hash(timestamp,lastHash, data);
           
           return new this(timestamp,lastHash,hash,data);
+      }
+
+
+      static hash(timestamp, lastHash, data) {
+          return SHA256(`${timestamp}${lastHash}${data}`).toString();
       }
 }
 
