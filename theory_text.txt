@@ -20,3 +20,8 @@ Block hashes and SHA-256 :
 The hash is generated from the timestamp, lastHash, ad stored Data.   (256bits = 32 bytes == 32 characters)
 One-way hash - from direction of data to hashes
 useful for block validation.
+
+
+types of validation
+##Multiple Chain Validation 
+##Hash Validation

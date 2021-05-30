@@ -6,7 +6,7 @@ describe('Block', () => {
          data = 'bar';
          lastBlock =Block.genesis();
          block = Block.mineBlock(lastBlock, data);
-    })
+    });
     it('sets the `data` to match the input',() => {
         expect(block.data).toEqual(data);         // this expects the data to be equal to the block data
 
