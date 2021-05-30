@@ -1,11 +1,6 @@
-const Block = require('./block');
+const Block = require('./blockchain/block.js');
 
 const fooBlock =  Block.mineBlocks(Block.genesis(), 'foo');
 console.log(fooBlock.toString());
 
 
-/*
-const block = new Block('foo','bar','zoo','baz');
-console.log(block.toString());
-console.log(Block.genesis().toString());
-*/
