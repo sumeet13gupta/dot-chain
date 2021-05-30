@@ -25,3 +25,12 @@ useful for block validation.
 types of validation
 ##Multiple Chain Validation 
 ##Hash Validation
+
+## Creating a blockchain API to access the blocks in our blockchain:
+    we will be using express module for building the API around our blockchain
+
+## Creating a Peer-to-Peer server: 
+1. The first appp connects the peer-to-peer server
+2. A later server,connecting to the original
+
+## Creating a web socket server:
