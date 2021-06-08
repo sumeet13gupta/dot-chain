@@ -34,7 +34,7 @@ class Blockchain {
             console.log('Received chain is not longer than the current chain length');
             return;
         } else if (!this.isValidChain(newChain)) {
-            console.log('The received chain is notn valid');
+            console.log('The received chain is not valid');
             return;
         }
 

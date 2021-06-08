@@ -34,3 +34,153 @@ types of validation
 2. A later server,connecting to the original
 
 ## Creating a web socket server:
+webSocket helps create the peer to peer circuits using a socket connection
+
+
+after sending the requiest for new block creation using postman we got few block details in our first instance of node .
+
+[nodemon] starting `node ./app`
+peers to be connected :
+Listening for peer-to-peer connections on : 5001
+Listening on port 3001
+1
+Socket connected
+data [
+  {
+    timestamp: 'Genesis time',
+    lastHash: '______',
+    hash: 'irhsd_hasbu',
+    data: []
+  }
+]
+New block Added Block -
+          Timestamp : 1623177106303
+          LastHash  : irhsd_hasb
+          Hash      : 8a3d79e975991948df
+          Data      : undefined
+New block Added Block -
+          Timestamp : 1623177143911
+          LastHash  : 8a3d79e975
+          Hash      : e4753f1e40192167a9
+          Data      : foooo
+New block Added Block -
+          Timestamp : 1623177169986
+          LastHash  : e4753f1e40
+          Hash      : 45fcd6d3e2b55ae50f
+          Data      : foooo
+New block Added Block -
+          Timestamp : 1623177171091
+          LastHash  : 45fcd6d3e2
+          Hash      : ea99679438cb8a371a
+          Data      : foooo
+2
+Socket connected
+data [
+  {
+    timestamp: 'Genesis time',
+    lastHash: '______',
+    hash: 'irhsd_hasbu',
+    data: []
+  }
+]
+
+## Synchronize the blockchain across all the peers
+
+
+This Pc@SG MINGW64 ~/Desktop/dot-chain (main)
+$ HTTP_port=3002 P2P_port=5002 PEERS=ws://localhost:5001 npm run dev
+
+> dot-chain@1.0.0 dev C:\Users\This Pc\Desktop\dot-chain
+> nodemon ./app
+
+[nodemon] 2.0.7
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node ./app`
+peers to be connected : ws://localhost:5001
+Listening for peer-to-peer connections on : 5002
+Listening on port 3002
+1
+Socket connected
+Received chain is not longer than the current chain length
+Replaced Blockchain with the new chain
+Replaced Blockchain with the new chain
+Replaced Blockchain with the new chain
+New block Added Block -
+          Timestamp : 1623180779642
+          LastHash  : 45f437b46e
+          Hash      : 52e7ce88ef45d58a7e
+          Data      : foofoo
+New block Added Block -
+          Timestamp : 1623180802157
+          LastHash  : 52e7ce88ef
+          Hash      : 4fcdeb0d86c75f730a
+          Data      : yuphee
+New block Added Block -
+          Timestamp : 1623182692783
+          LastHash  : 4fcdeb0d86
+          Hash      : 592285194cddf37f01
+          Data      : new data
+
+
+While on the first peer :
+
+
+This Pc@SG MINGW64 ~/Desktop/dot-chain (main)
+$ npm run dev
+
+> dot-chain@1.0.0 dev C:\Users\This Pc\Desktop\dot-chain
+> nodemon ./app
+
+[nodemon] 2.0.7
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node ./app`
+peers to be connected :
+Listening for peer-to-peer connections on : 5001
+Listening on port 3001
+1
+Socket connected
+Received chain is not longer than the current chain length
+New block Added Block -
+          Timestamp : 1623180704215
+          LastHash  : irhsd_hasb
+          Hash      : 40254a595a173879ce
+          Data      : foooo
+New block Added Block -
+          Timestamp : 1623180708461
+          LastHash  : 40254a595a
+          Hash      : 51f228509ae19c092a
+          Data      : foooo
+New block Added Block -
+          Timestamp : 1623180709638
+          LastHash  : 51f228509a
+          Hash      : 45f437b46ef508751a
+          Data      : foooo
+Replaced Blockchain with the new chain
+Replaced Blockchain with the new chain
+Replaced Blockchain with the new chain
+
+______________________________________________________________________________________________________________________________________________]
+
+## Proof of work
+
+1. A system that requires miners to do computational work to add block 
+2. Any peer can replace the blockchain
+3. the proof of work makes it expensive to generate corrupt chains
+4. Manageable to submit one block, unproductive to generate an entire chain
+5. HashCash is a proof of work system  to prevent email spamming 
+                        Difficulty = 6    (leading zeroes)
+                        Hash = 000000hagf673728jahdsis
+6. Generate hashes until one with matching leading zeroes is found
+7. A 'Nonce' value adjusts in order to generate new hashes (nonce used only ones )
+
+    51% Attack : A dishonest miner has more than at least 51% of the network's computational power they have the power to replace 
+    the current blockchain with the one in their favour
+    => A 51% Attack for bit coin would be more than $6 billion(start of 2018
+
+
+
+
