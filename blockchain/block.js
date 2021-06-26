@@ -1,6 +1,7 @@
 //new ES6 class
 const SHA256 = require('crypto-js/sha256');
-const DIFFICULTY = 4;
+const { DIFFICULTY,MINE_RATE } =  require('../config');
+
 class Block {
       constructor(timestamp, lastHash, hash, data, nonce) {
           this.timestamp = timestamp;
@@ -15,7 +16,7 @@ class Block {
           Timestamp : ${this.timestamp}
           LastHash  : ${this.lastHash.substring(0,10)}
           Hash      : ${this.hash.substring(0,18)}
-          nonce     :${this.nonce}
+          nonce     : ${this.nonce}
           Data      : ${this.data} `;
       }
 
@@ -24,12 +25,17 @@ class Block {
       }
 
       static mineBlock(lastBlock, data) {
-          const timestamp = Date.now();
+          let hash, timestamp;  
           const lastHash = lastBlock.hash;
-          const hash = Block.hash(timestamp,lastHash, data);
           let nonce = 0;
+          do{
+            nonce++;
+            timestamp = Date.now();
+            hash = Block.hash(timestamp,lastHash, data, nonce);
+          } while(hash.substring(0,DIFFICULTY) != '0'.repeat(DIFFICULTY));
+
           
-          return new this(timestamp,lastHash,hash,data);
+          return new this(timestamp,lastHash,hash,data,nonce);
       }
 
 
