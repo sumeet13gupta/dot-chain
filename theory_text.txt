@@ -4,40 +4,49 @@ lastHash - the hash of the data block efore it
 hash -  based on its own data
 the data to store
 
-
+______________________________________________________________________________________________________________________________________________
 
 ##The Genesis block:
 it serves the purpose of creating the origfin for the block-chain
 why is it useful? : If someone adds a new block to the chain, it contains the hash information of its previous block i.e. the Genesis block.
 
+______________________________________________________________________________________________________________________________________________
 
 ##Mine blocks:
 based on the old blocks we can create new blocks
 
-
+______________________________________________________________________________________________________________________________________________
 
 Block hashes and SHA-256 :
 The hash is generated from the timestamp, lastHash, ad stored Data.   (256bits = 32 bytes == 32 characters)
 One-way hash - from direction of data to hashes
 useful for block validation.
 
+______________________________________________________________________________________________________________________________________________
 
 types of validation
 ##Multiple Chain Validation 
 ##Hash Validation
 
+______________________________________________________________________________________________________________________________________________
+
 ## Creating a blockchain API to access the blocks in our blockchain:
     we will be using express module for building the API around our blockchain
+
+______________________________________________________________________________________________________________________________________________
 
 ## Creating a Peer-to-Peer server: 
 1. The first appp connects the peer-to-peer server
 2. A later server,connecting to the original
 
+______________________________________________________________________________________________________________________________________________
+
 ## Creating a web socket server:
 webSocket helps create the peer to peer circuits using a socket connection
 
+______________________________________________________________________________________________________________________________________________
 
-after sending the requiest for new block creation using postman we got few block details in our first instance of node .
+After sending the requiest for new block creation using postman we got few block details in our first instance of node .
 
 [nodemon] starting `node ./app`
 peers to be connected :
@@ -181,6 +190,30 @@ ________________________________________________________________________________
     the current blockchain with the one in their favour
     => A 51% Attack for bit coin would be more than $6 billion(start of 2018
 
+______________________________________________________________________________________________________________________________________________
+
+Now the nonce value is also considered for generating hash. now we can set the difficulty for the computation as per the difficulty in config file
+It takes an amount of time to find the valid hash for the block.
+
+    console.log
+      Block -
+                Timestamp : 1624709009930
+                LastHash  : irhsd_hasb
+                Hash      : 00009066a852e34d21
+                nonce     : 84043
+                Data      : bar
+
+      at Object.<anonymous> (blockchain/block.test.js:23:17)
 
 
+Test Suites: 2 passed, 2 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        15.854 s, estimated 16 s
+Ran all test suites.
+
+______________________________________________________________________________________________________________________________________________
+
+Dynamic Block Difficulty :
+We keep track of the mine rate , if the next block is added before the mine rate we will increase the difficulty by 1 while if it is mined too slowly , we will decrease the difficulty by 1 .
 
